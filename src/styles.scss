@@ -1,1 +1,133 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Material+Icons+Outlined|Material+Icons');
+
+// Mixins
+@mixin scrollbar-styles {
+  &::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+    border: none;
+    border-radius: var(--border-radius);
+    background-color: rgba(0, 0, 0, 0.02);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border: #ccc solid 1px;
+    border-radius: var(--border-radius);
+    background-color: rgba(var(--primary-color-rgb), 0.8);
+  }
+
+  &::-webkit-scrollbar-corner {
+    background-color: rgba(0, 0, 0, 0.02);
+  }
+}
+
+:root {
+  --primary-color: #22232e;
+  --primary-color-rgb: 34, 35, 46;
+  --primary-color-shade: #33343e;
+  --primarytext-color: #f4f7fa;
+  --secondary-color: #adec55;
+  --secondary-color-rgb: 173, 236, 85;
+  --secondary-color-shade: #b1d77b;
+  --secondary-text-color: #2e2e2e;
+
+  --color-even: #9e9fa3;
+  --color-odd: #b1b2b5;
+  --color-hover: #8d8d8f;
+
+  --text-color: #2e2e2e;
+  --text-color-dark: #f4f7fa;
+  --placeholder-color: #6a666c;
+  --border-color: #afafaf;
+
+  --sidenav-width: 16.5625rem;
+  --sidenav-min-width: 5rem;
+  --sidenav-height: 100%;
+  --sidenav-bg-color: #22232e;
+  --sidenav-text-color: var(--text-color-dark);
+  --sidenav-item-color-hover: var(--secondary-color-shade);
+  --sidenav-item-color-active: var(--secondary-color);
+
+  --content-bg-color: #f4f7fa;
+
+  // --background-color-1: #d0d1d2;
+  // --background-color-2: #878788;
+  --background-color-1: #bed9e2;
+  --background-color-2: #e9dcce;
+  // --background-color-1: #ff7e5f;
+  // --background-color-2: #feb47b;
+  --background-linear: linear-gradient(var(--background-color-1), var(--background-color-2));
+  // --background-linear: linear-gradient(#ff7e5f, #feb47b);
+  // --background-linear: linear-gradient(to right, #ff7e5f, #feb47b);
+  // --background-linear: radial-gradient(circle, #ff7e5f, #feb47b);
+  // --background-linear: conic-gradient(from 0deg, #ff7e5f, #feb47b, #ff7e5f);
+  // --background-linear: repeating-linear-gradient(45deg, #ff7e5f, #feb47b 10px);
+
+  --footer-height: 0px;
+  --main-height: calc(100vh - var(--footer-height));
+
+  --border-radius: 0.45rem;
+
+  --bright-blue: oklch(51.01% 0.274 263.83);
+  --electric-violet: oklch(53.18% 0.28 296.97);
+  --french-violet: oklch(47.66% 0.246 305.88);
+  --vivid-pink: oklch(69.02% 0.277 332.77);
+  --hot-red: oklch(61.42% 0.238 15.34);
+  --orange-red: oklch(63.32% 0.24 31.68);
+
+  --gray-900: oklch(19.37% 0.006 300.98);
+  --gray-700: oklch(36.98% 0.014 302.71);
+  --gray-400: oklch(68.9% 0.015 304.04);
+
+  --red-to-pink-to-purple-vertical-gradient: linear-gradient(180deg,
+      var(--orange-red) 0%,
+      var(--vivid-pink) 50%,
+      var(--electric-violet) 100%);
+
+  --red-to-pink-to-purple-horizontal-gradient: linear-gradient(90deg,
+      var(--orange-red) 0%,
+      var(--vivid-pink) 50%,
+      var(--electric-violet) 100%);
+
+  --pill-accent: var(--bright-blue);
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  // color-scheme: light dark;
+
+  ::placeholder {
+    color: var(--placeholder-color);
+    opacity: .4;
+  }
+
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  scroll-behavior: smooth;
+
+  @include scrollbar-styles;
+}
+
+body {
+  overflow: hidden;
+  position: relative;
+  color: var(--text-color);
+
+  font-size: .9rem;
+  font-family: Poppins, sans-serif;
+  color: #fff;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
