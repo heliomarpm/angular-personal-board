@@ -1,0 +1,66 @@
+.container {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.content {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+
+  flex-wrap: wrap;
+}
+
+.btns-container {
+  display: flex;
+  gap: 12px;
+
+  margin-top: 20px;
+
+  &.btns-centered {
+    justify-content: center;
+  }
+
+  .align-end {
+    margin-left: auto;
+  }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 12px 22px;
+  background: rgba(black, 0.7);
+
+  text-decoration: none;
+  color: white;
+
+  // font-size: 18px;
+  // font-weight: 600;
+  font-family: inherit;
+
+  border: none;
+  border-radius: 4px;
+
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(black, 0.78);
+    backdrop-filter: blur(2px);
+  }
+
+  &:active {
+    background: rgba(black, 0.85);
+  }
+}
+
+.add-btn i {
+  margin-right: 5px;
+  margin-left: -3px;
+}
+
+.manage-btn i {
+  margin-right: 8px;
+  opacity: 0.9;
+}
