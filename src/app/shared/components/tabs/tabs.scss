@@ -1,0 +1,154 @@
+// Variáveis
+$tab-gap: 14px;
+$tab-bg-color: rgba(white, 0.25);
+$tab-blur: blur(3px);
+$tab-border-radius: 12px;
+$tab-padding: 10px;
+$tab-margin: 12px;
+$tab-margin-top: 50px;
+
+$tab-tile-padding: 18px;
+$tab-icon-color: #222;
+
+$underline-height: 3px;
+$underline-bg-color: rgba(white, 0.85);
+
+// Mixins
+@mixin flex-layout($gap: $tab-gap) {
+  display: flex;
+  gap: $gap;
+}
+
+@mixin glass-effect($bg-color: $tab-bg-color, $blur: $tab-blur) {
+  background-color: $bg-color;
+  backdrop-filter: $blur;
+}
+
+@mixin transition($properties: all, $duration: 0.2s, $easing: ease-out) {
+  transition: $properties $duration $easing;
+}
+
+@mixin transform-transition($duration: 0.4s, $easing: cubic-bezier(0, 0, 0, 2)) {
+  transition: transform $duration $easing;
+}
+
+@mixin gradient-bg($angle: 45deg, $color1, $color2) {
+  background: linear-gradient($angle, $color1, $color2);
+}
+
+@mixin pseudo-element($content: '') {
+  content: $content;
+  position: absolute;
+}
+
+@mixin tile-before {
+  @include pseudo-element;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  opacity: 0.9;
+  @include transition;
+}
+
+@mixin underline-effect {
+  @include pseudo-element;
+  bottom: -5px;
+  left: 0;
+  right: 0;
+  height: $underline-height;
+  width: 50%;
+  margin: auto;
+  background-color: $underline-bg-color;
+  @include transition;
+  
+  // hide by default
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+// Tabs container
+.tabs {
+  @include flex-layout;
+  @include glass-effect;
+  border-radius: $tab-border-radius;
+  padding: $tab-padding;
+  margin: $tab-margin;
+  margin-top: $tab-margin-top;
+}
+
+// Individual tab
+.tab {
+  position: relative;
+  text-decoration: none;
+  z-index: 1;
+
+  &::after {
+    @include underline-effect;
+  }
+
+  &.selected {
+    outline: none;
+
+    &::after {
+      opacity: 1;
+      transform: scaleX(1);
+      transition-delay: 0.2s;
+    }
+
+    .tab-tile {
+      transform: translateY(-40%);
+      @include transform-transition;
+
+      &::before {
+        opacity: 1;
+        transform: scale(1.1);
+        border-radius: 50%;
+        box-shadow: 0px 7px 17px rgba(black, 0.12);
+        transition-delay: 0.2s;
+      }
+    }
+  }
+}
+
+// Tab tile
+.tab-tile {
+  display: flex;
+  padding: $tab-tile-padding;
+  @include transition;
+  cursor: pointer;
+
+  i {
+    color: $tab-icon-color;
+  }
+
+  &::before {
+    @include tile-before;
+  }
+
+  &:hover::before {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+// Specific tab gradients
+.bookmarks-tab {
+  .tab-tile::before {
+    @include gradient-bg(45deg, #f8b5a5, #e2d2fd);
+  }
+}
+
+.todos-tab {
+  .tab-tile::before {
+    @include gradient-bg(45deg, #a2ffff, #ffbdde);
+  }
+}
+
+.notes-tab {
+  .tab-tile::before {
+    @include gradient-bg(45deg, #d2cdff, #82e4bb);
+  }
+}
