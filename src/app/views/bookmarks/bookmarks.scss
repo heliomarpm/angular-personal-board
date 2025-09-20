@@ -4,6 +4,11 @@
 }
 
 .content {
+  max-width: 850px;
+  margin: auto;
+}
+
+.bookmark-tiles {
   display: flex;
   gap: 20px;
   justify-content: center;
