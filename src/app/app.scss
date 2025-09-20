@@ -3,8 +3,13 @@ $title-size: 5.5rem;
 .container {
   display: flex;
   flex-direction: column;
-  background: var(--background-linear);
   height: 100vh;
+
+  background: var(--background-linear);
+  background-image: url('https://images.unsplash.com/photo-1755502046743-78265e184cc3?w=3600');
+  // background-size: cover;
+  // background-position: center;
+  // background-repeat: no-repeat;
 
   #header {
     text-align: center;
