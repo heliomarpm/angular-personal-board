@@ -1,6 +1,6 @@
 // Variáveis
 $tab-gap: 14px;
-$tab-bg-color: rgba(white, 0.25);
+$tab-bg-color: rgba(white, 0.3);
 $tab-blur: blur(3px);
 $tab-border-radius: 12px;
 $tab-padding: 10px;
@@ -11,7 +11,8 @@ $tab-tile-padding: 18px;
 $tab-icon-color: #222;
 
 $underline-height: 3px;
-$underline-bg-color: rgba(white, 0.85);
+$underline-width: 60%;
+$underline-bg-color: rgba(#402f3a, 0.85);
 
 // Mixins
 @mixin flex-layout($gap: $tab-gap) {
@@ -59,11 +60,11 @@ $underline-bg-color: rgba(white, 0.85);
   left: 0;
   right: 0;
   height: $underline-height;
-  width: 50%;
+  width: $underline-width;
   margin: auto;
   background-color: $underline-bg-color;
   @include transition;
-  
+
   // hide by default
   opacity: 0;
   transform: scaleX(0);
