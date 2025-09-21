@@ -6,7 +6,9 @@
     "useIgnoreFile": false
   },
   "files": {
-    "ignoreUnknown": false
+    "maxSize": 10485760,
+    "ignoreUnknown": false,
+    "includes": ["src/**/*", "test/**/*", "tsconfig.*.json", "package.json", "biome.json"]
   },
   "formatter": {
     "enabled": true,
