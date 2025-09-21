@@ -1,35 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { Bookmark, BookmarkModel } from './components';
-import { RouterLink } from '@angular/router';
+import { Component, inject, type OnInit } from "@angular/core";
+import { RouterLink } from "@angular/router";
+import { BookmarkService } from "./bookmark.service";
+import { Bookmark, type BookmarkModel } from "./components";
 
 @Component({
-  selector: 'app-bookmarks',
-  imports: [Bookmark, RouterLink, ],
-  templateUrl: './bookmarks.html',
-  styleUrl: './bookmarks.scss'
+	selector: "app-bookmarks",
+	imports: [Bookmark, RouterLink],
+	templateUrl: "./bookmarks.html",
+	styleUrl: "./bookmarks.scss",
 })
 export class Bookmarks implements OnInit {
-  bookmarks: BookmarkModel[] = [];
+	protected readonly bookmarkService = inject(BookmarkService);
+	bookmarks: BookmarkModel[] = [];
 
-  ngOnInit(): void {
-    this.bookmarks = [{
-      id: '1',
-      title: 'Google',
-      url: 'https://google.com.br',
-      logo: ''
-    },
-    {
-      id: '2',
-      title: 'Personal Github',
-      url: 'https://github.com/heliomarpm',
-      logo: ''
-    },
-    {
-      id: '3',
-      title: 'Youtube',
-      url: 'https://www.youtube.com',
-      logo: ''
-    }
-    ];
-  }
+	ngOnInit(): void {
+		this.bookmarks = this.bookmarkService.getBookmarks();
+	}
 }
