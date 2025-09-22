@@ -16,13 +16,7 @@
   "files": {
     "maxSize": 10485760,
     "ignoreUnknown": false,
-    "includes": [
-      "src/**/*",
-      "test/**/*",
-      "tsconfig*.json",
-      "package.json",
-      "biome.json"
-    ]
+    "includes": ["src/**/*", "test/**/*", "tsconfig*.json", "package.json", "biome.json"]
   },
   "formatter": {
     "enabled": true,
@@ -32,9 +26,7 @@
     "formatWithErrors": false,
     "attributePosition": "auto",
     "bracketSpacing": true,
-    "includes": [
-      "**"
-    ],
+    "includes": ["**"],
     "lineEnding": "lf",
     "lineWidth": 180
   },
