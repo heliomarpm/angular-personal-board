@@ -5,7 +5,13 @@ import { provideRouter, withViewTransitions } from "@angular/router";
 
 import { routes } from "./app.routes";
 
-registerLocaleData(localePt); // Registre os dados de localiza��o
+registerLocaleData(localePt); // Registre os dados de localização
+
 export const appConfig: ApplicationConfig = {
-	providers: [{ provide: LOCALE_ID, useValue: "pt-BR" }, provideBrowserGlobalErrorListeners(), provideZonelessChangeDetection(), provideRouter(routes, withViewTransitions())],
+	providers: [
+		{ provide: LOCALE_ID, useValue: "pt-BR" }, 
+		provideBrowserGlobalErrorListeners(), 
+		provideZonelessChangeDetection(), 
+		provideRouter(routes, withViewTransitions())
+	],
 };

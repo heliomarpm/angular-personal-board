@@ -2,8 +2,8 @@
   "name": "personal-board",
   "version": "0.0.0",
   "scripts": {
-    "check": "biome check --write",
-    "lint": "biome lint --write",
+    "check": "biome check",
+    "lint": "biome lint --write --unsafe",
     "format": "biome format --write",
     "ng": "ng",
     "start": "ng serve",
