@@ -12,5 +12,6 @@ export const routes: Routes = [
 		// ],
 	},
 	{ path: "bookmarks/add", loadComponent: () => import("./views/bookmarks/add-bookmark/add-bookmark").then((c) => c.AddBookmark) },
+	{ path: "bookmarks/manage", loadComponent: () => import("./views/bookmarks/manage-bookmarks/manage-bookmarks").then((c) => c.ManageBookmarks) },
 	{ path: "**", redirectTo: "/404" },
 ];
