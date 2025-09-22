@@ -1,6 +1,5 @@
-import { Injectable, OnInit, signal, WritableSignal } from "@angular/core";
+import { Injectable, OnDestroy, OnInit } from "@angular/core";
 import { HybridWebCache, StorageEngine } from "hybrid-webcache";
-import { fromEvent } from "rxjs";
 import type { IBookmark } from "./bookmark.model";
 
 @Injectable({
@@ -9,16 +8,12 @@ import type { IBookmark } from "./bookmark.model";
 export class BookmarkService {
   protected readonly storage = new HybridWebCache("PERSONAL_BOARD", { ttl: 0, storage: StorageEngine.LocalStorage });
 
-  // bookmarks: WritableSignal<IBookmark[]> = signal([]);
   bookmarks: IBookmark[] = [];
 
-  constructor() {
+  constructor() {   
     this.loadState();
-
-
   }
 
-  // Acesso ao Signal � feito chamando-o como uma fun��o
   getBookmarks(): IBookmark[] {
     return this.bookmarks;
   }
@@ -58,20 +53,20 @@ export class BookmarkService {
     this.bookmarks = this.storage.getSync<IBookmark[]>("bookmarks")?.value || [];
 
     if (this.bookmarks.length === 0) {
-    	this.bookmarks = [
-    		{
-    			id: "1",
-    			title: "Personal Github",
-    			url: "https://github.com/heliomarpm",
-    			logo: "",
-    		},
-    		{
-    			id: "2",
-    			title: "NavToMe",
-    			url: "https://navto.me/heliomarpm",
-    			logo: "",
-    		},
-    	];
+      this.bookmarks = [
+        {
+          id: "1",
+          title: "Personal Github",
+          url: "https://github.com/heliomarpm",
+          logo: "",
+        },
+        {
+          id: "2",
+          title: "NavToMe",
+          url: "https://navto.me/heliomarpm",
+          logo: "",
+        },
+      ];
     }
   }
 }
