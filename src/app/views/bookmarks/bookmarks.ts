@@ -1,7 +1,7 @@
-import { Component, inject, type OnInit } from "@angular/core";
+import { Component, inject } from "@angular/core";
 import { RouterLink } from "@angular/router";
 import { BookmarkService } from "./bookmark.service";
-import { Bookmark, type BookmarkModel } from "./components";
+import { Bookmark } from "./components";
 
 @Component({
 	selector: "app-bookmarks",
@@ -9,11 +9,7 @@ import { Bookmark, type BookmarkModel } from "./components";
 	templateUrl: "./bookmarks.html",
 	styleUrl: "./bookmarks.scss",
 })
-export class Bookmarks implements OnInit {
+export class Bookmarks {
 	protected readonly bookmarkService = inject(BookmarkService);
-	bookmarks: BookmarkModel[] = [];
-
-	ngOnInit(): void {
-		this.bookmarks = this.bookmarkService.getBookmarks();
-	}
+	bookmarks = this.bookmarkService.getBookmarks();
 }
