@@ -12,6 +12,12 @@ export const routes: Routes = [
 		// ],
 	},
 	{ path: "bookmarks/add", loadComponent: () => import("./views/bookmarks/add-bookmark/add-bookmark").then((c) => c.AddBookmark) },
-	{ path: "bookmarks/manage", loadComponent: () => import("./views/bookmarks/manage-bookmarks/manage-bookmarks").then((c) => c.ManageBookmarks) },
+	{
+		path: "bookmarks/manage",
+		loadComponent: () => import("./views/bookmarks/manage-bookmarks/manage-bookmarks").then((c) => c.ManageBookmarks),
+		children: [
+			{ path: ":id", loadComponent: () => import("./views/bookmarks/edit-bookmark/edit-bookmark").then((c) => c.EditBookmark) }
+		]
+	},
 	{ path: "**", redirectTo: "/404" },
 ];

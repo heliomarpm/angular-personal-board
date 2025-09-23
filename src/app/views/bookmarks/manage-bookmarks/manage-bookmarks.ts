@@ -1,10 +1,10 @@
 import { Component, inject } from "@angular/core";
-import { RouterLink, RouterLinkActive } from "@angular/router";
+import { RouterLink, RouterLinkActive, RouterOutlet } from "@angular/router";
 import { BookmarkService } from "../bookmark.service";
 
 @Component({
 	selector: "app-manage-bookmarks",
-	imports: [RouterLink, RouterLinkActive],
+	imports: [RouterLink, RouterLinkActive, RouterOutlet],
 	templateUrl: "./manage-bookmarks.html",
 	styleUrl: "./manage-bookmarks.scss",
 })
