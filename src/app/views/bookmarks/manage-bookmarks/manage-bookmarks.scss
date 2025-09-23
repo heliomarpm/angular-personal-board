@@ -16,7 +16,7 @@
 }
 
 .sidebar-heading {
-	color: rgba(white, 0.8);
+	color: #fff;// rgba(white, 0.8);
 	font-weight: 600;	
 	font-size: 1.1rem;
 	padding: 15px;
@@ -30,13 +30,12 @@
 
 .sidebar-item {
 	position: relative;
-	color: rgba(white, 0.78);
-	font-size: .7rem;
+	color: #fff; //rgba(white, 0.8);
+	font-size: .75rem;
 	padding: 4px 22px;
 	white-space: nowrap;
 	text-overflow: ellipsis;	
 	overflow: hidden;
-	letter-spacing: .05rem;
 	
 	&:hover {
 		color: rgba(white, 0.85);

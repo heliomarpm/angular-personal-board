@@ -1,11 +1,11 @@
 import { DatePipe } from "@angular/common";
 import { Component, type OnInit, signal } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
-import { Tabs } from "./shared/components/tabs/tabs";
+import { Notification, Tabs } from "./shared/components";
 
 @Component({
 	selector: "app-root",
-	imports: [RouterOutlet, DatePipe, Tabs],
+	imports: [RouterOutlet, DatePipe, Tabs, Notification],
 	templateUrl: "./app.html",
 	styleUrl: "./app.scss",
 })

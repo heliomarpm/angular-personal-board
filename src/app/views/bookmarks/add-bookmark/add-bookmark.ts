@@ -4,6 +4,7 @@ import { Router, RouterLink } from "@angular/router";
 
 import type { IBookmark } from "../bookmark.model";
 import { BookmarkService } from "../bookmark.service";
+import { NotificationService } from "@app/shared/components";
 
 @Component({
 	selector: "app-add-bookmark",
@@ -12,8 +13,9 @@ import { BookmarkService } from "../bookmark.service";
 	styleUrl: "./add-bookmark.scss",
 })
 export class AddBookmark {
-	protected readonly bookmarkService = inject(BookmarkService);
 	protected readonly router = inject(Router);
+	protected readonly bookmarkService = inject(BookmarkService);
+	protected readonly notificationService = inject(NotificationService)
 
 	onFormSubmit(form: NgForm) {
 		const { title, url } = form.value;
@@ -27,5 +29,6 @@ export class AddBookmark {
 
 		this.bookmarkService.addBookmark(bookmark);
 		this.router.navigateByUrl("/bookmarks");
+		this.notificationService.show('Created bookmark!')
 	}
 }

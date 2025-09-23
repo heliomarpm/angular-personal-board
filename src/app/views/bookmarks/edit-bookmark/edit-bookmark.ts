@@ -1,8 +1,10 @@
 import { Component, inject, type OnInit } from "@angular/core";
 import { FormsModule, type NgForm } from "@angular/forms";
 import { ActivatedRoute, Router, RouterLink } from "@angular/router";
+
 import type { IBookmark } from "../bookmark.model";
 import { BookmarkService } from "../bookmark.service";
+import { NotificationService } from "@app/shared/components";
 
 @Component({
 	selector: "app-edit-bookmark",
@@ -13,9 +15,10 @@ import { BookmarkService } from "../bookmark.service";
 export class EditBookmark implements OnInit {
 	bookmark: IBookmark = {} as IBookmark;
 
-	protected readonly bookmarkService = inject(BookmarkService);
 	protected readonly router = inject(Router);
 	protected readonly route = inject(ActivatedRoute);
+	protected readonly bookmarkService = inject(BookmarkService);
+	protected readonly notificationService = inject(NotificationService);
 
 	ngOnInit(): void {
 		this.route.paramMap.subscribe((params) => {
@@ -34,11 +37,14 @@ export class EditBookmark implements OnInit {
 
 	onFormSubmit(form: NgForm) {
 		const { title, url } = form.value
+
 		this.bookmarkService.updateBookmark(this.bookmark.id, { title, url });
+		this.notificationService.show('Updated bookmark!')
 	}
 
 	delete() {
-		this.bookmarkService.deleteBookmark(this.bookmark.id)
-		this.router.navigate(['../'], { relativeTo: this.route });
+		this.bookmarkService.deleteBookmark(this.bookmark.id)		
+		this.router.navigate(['../'], { relativeTo: this.route });		
+		this.notificationService.show('Deleted bookmark!');
 	}
 }
