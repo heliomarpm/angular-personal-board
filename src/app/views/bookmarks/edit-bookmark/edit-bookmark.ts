@@ -36,15 +36,15 @@ export class EditBookmark implements OnInit {
 	}
 
 	onFormSubmit(form: NgForm) {
-		const { title, url } = form.value
+		const { title, url } = form.value;
 
 		this.bookmarkService.updateBookmark(this.bookmark.id, { title, url });
-		this.notificationService.show('Updated bookmark!')
+		this.notificationService.show("Updated bookmark!");
 	}
 
 	delete() {
-		this.bookmarkService.deleteBookmark(this.bookmark.id)		
-		this.router.navigate(['../'], { relativeTo: this.route });		
-		this.notificationService.show('Deleted bookmark!');
+		this.bookmarkService.deleteBookmark(this.bookmark.id);
+		this.router.navigate(["../"], { relativeTo: this.route });
+		this.notificationService.show("Deleted bookmark!");
 	}
 }

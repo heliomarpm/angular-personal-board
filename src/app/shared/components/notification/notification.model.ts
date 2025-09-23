@@ -1,4 +1,4 @@
 export interface INotification {
-	text: string
-	duration: number
+	text: string;
+	duration: number;
 }
