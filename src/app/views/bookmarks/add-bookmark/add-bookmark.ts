@@ -16,17 +16,16 @@ export class AddBookmark {
 	protected readonly router = inject(Router);
 
 	onFormSubmit(form: NgForm) {
-		const { name, url } = form.value;
+		const { title, url } = form.value;
 
 		const bookmark: IBookmark = {
 			id: crypto.randomUUID(),
-			title: name,
+			title,
 			url,
 			logo: null,
 		};
 
 		this.bookmarkService.addBookmark(bookmark);
 		this.router.navigateByUrl("/bookmarks");
-		// this.notificationService.show('Created bookmark!')
 	}
 }
