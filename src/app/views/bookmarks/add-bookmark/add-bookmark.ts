@@ -1,11 +1,10 @@
 import { Component, inject } from "@angular/core";
 import { FormsModule, type NgForm } from "@angular/forms";
 import { Router, RouterLink } from "@angular/router";
-
-import type { IBookmark } from "../bookmark.model";
-import { BookmarkService } from "../bookmark.service";
 import { NotificationService } from "@app/shared/components";
 import { Utils } from "@heliomarpm/helpers";
+import { BookmarkService } from "../bookmark.service";
+import type { IBookmark } from "../components";
 
 @Component({
 	selector: "app-add-bookmark",

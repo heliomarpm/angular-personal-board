@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HybridWebCache, StorageEngine } from "hybrid-webcache";
-import type { IBookmark } from "./bookmark.model";
+import type { IBookmark } from "./components";
 
 @Injectable({
 	providedIn: "root",
