@@ -1,7 +1,7 @@
 import { Injectable, signal } from "@angular/core";
 // import { Subject } from 'rxjs';
 
-import { INotification } from "./notification.model";
+import type { INotification } from "./notification.model";
 
 @Injectable({
 	providedIn: "root",
