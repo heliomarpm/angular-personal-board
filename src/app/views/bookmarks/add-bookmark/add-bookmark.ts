@@ -5,6 +5,7 @@ import { Router, RouterLink } from "@angular/router";
 import type { IBookmark } from "../bookmark.model";
 import { BookmarkService } from "../bookmark.service";
 import { NotificationService } from "@app/shared/components";
+import { Utils } from "@heliomarpm/helpers";
 
 @Component({
 	selector: "app-add-bookmark",
@@ -21,7 +22,7 @@ export class AddBookmark {
 		const { title, url } = form.value;
 
 		const bookmark: IBookmark = {
-			id: crypto.randomUUID(),
+			id: Utils.generateUUIDv4(),
 			title,
 			url,
 			logo: null,
