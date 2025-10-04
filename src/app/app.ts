@@ -1,6 +1,7 @@
 import { DatePipe } from "@angular/common";
 import { Component, type OnInit, signal } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
+
 import { Notification, Tabs } from "./shared/components";
 
 @Component({
