@@ -3,14 +3,15 @@
   "version": "0.0.0",
   "scripts": {
     "check": "biome check",
-    "lint": "biome lint --write --unsafe",
+    "check:w": "biome check --write",
+    "lint": "biome lint --write",
     "format": "biome format --write",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "clean": "rimraf ./node_modules ./coverage",
+    "clean": "rimraf ./node_modules ./coverage .angular",
     "postclean": "npm cache clean --force"
   },
   "prettier": {
@@ -27,30 +28,30 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/common": "^20.3.0",
-    "@angular/compiler": "^20.3.0",
-    "@angular/core": "^20.3.0",
-    "@angular/forms": "^20.3.0",
-    "@angular/platform-browser": "^20.3.0",
-    "@angular/router": "^20.3.0",
+    "@angular/common": "^20.3.3",
+    "@angular/compiler": "^20.3.3",
+    "@angular/core": "^20.3.3",
+    "@angular/forms": "^20.3.3",
+    "@angular/platform-browser": "^20.3.3",
+    "@angular/router": "^20.3.3",
     "@heliomarpm/helpers": "^0.5.1",
     "hybrid-webcache": "^0.3.3",
-    "rxjs": "~7.8.0",
-    "tslib": "^2.3.0"
+    "rxjs": "~7.8.2",
+    "tslib": "^2.8.1"
   },
   "devDependencies": {
-    "@angular/build": "^20.3.2",
-    "@angular/cli": "^20.3.2",
-    "@angular/compiler-cli": "^20.3.0",
-    "@biomejs/biome": "2.2.4",
-    "@types/jasmine": "~5.1.0",
-    "jasmine-core": "~5.9.0",
-    "karma": "~6.4.0",
+    "@angular/build": "^20.3.4",
+    "@angular/cli": "^20.3.4",
+    "@angular/compiler-cli": "^20.3.3",
+    "@biomejs/biome": "2.2.5",
+    "@types/jasmine": "~5.1.9",
+    "jasmine-core": "~5.11.0",
+    "karma": "~6.4.4",
     "karma-chrome-launcher": "~3.2.0",
-    "karma-coverage": "~2.2.0",
+    "karma-coverage": "~2.2.1",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "rimraf": "^6.0.1",
-    "typescript": "~5.9.2"
+    "typescript": "~5.9.3"
   }
 }
