@@ -1,0 +1,33 @@
+.todos-wrapper {
+    height: 100%;
+    overflow-y: auto;
+}
+
+.add-btn i {
+    margin-right: 5px;
+    margin-left: -3px;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    translate: 0 30px;
+  }
+}
+
+.stagger-in {
+  animation: fadeUp 2000ms ease-out both;
+  animation-delay: calc(var(--i) * 250ms); // 2.
+}
+
+.stagger-out {
+	opacity: 0;
+	height: 0;
+	margin-bottom: 0;
+	transition: all 0.4s ease-out;
+}
+
+app-todo {
+    display: block;
+    margin-bottom: 15px;
+}
