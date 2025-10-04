@@ -29,6 +29,6 @@ export class AddBookmark {
 
 		this.bookmarkService.addBookmark(bookmark);
 		this.router.navigateByUrl("/bookmarks");
-		this.notificationService.show("Created bookmark!");
+		this.notificationService.success("Created bookmark!");
 	}
 }

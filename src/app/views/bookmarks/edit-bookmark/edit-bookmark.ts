@@ -38,12 +38,12 @@ export class EditBookmark implements OnInit {
 		const { title, url } = form.value;
 
 		this.bookmarkService.updateBookmark(this.bookmark.id, { title, url });
-		this.notificationService.show("Updated bookmark!");
+		this.notificationService.success("Updated bookmark!");
 	}
 
 	delete() {
 		this.bookmarkService.deleteBookmark(this.bookmark.id);
 		this.router.navigate(["../"], { relativeTo: this.route });
-		this.notificationService.show("Deleted bookmark!");
+		this.notificationService.success("Deleted bookmark!");
 	}
 }

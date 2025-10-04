@@ -21,14 +21,14 @@ export class EditTodo {
 	ngOnInit(): void {
 		const todoId = this.route.snapshot.paramMap.get("id");
 		if (!todoId) {
-			this.notificationService.showError("Invalid todo id");
+			this.notificationService.error("Invalid todo id");
 			this.router.navigateByUrl("/todos");
 			return;
 		}
 
 		const found = this.todoService.getTodo(todoId);
 		if (!found) {
-			this.notificationService.showError("Todo not found");
+			this.notificationService.error("Todo not found");
 			this.router.navigateByUrl("/todos");
 			return;
 		}
@@ -38,7 +38,7 @@ export class EditTodo {
 
 	onFormSubmit(form: NgForm): void {
 		if (form.invalid) {
-			this.notificationService.showError("Please fix validation errors");
+			this.notificationService.error("Please fix validation errors");
 			return;
 		}
 
@@ -48,6 +48,6 @@ export class EditTodo {
 
 		this.todoService.updateTodo(this.todo.id, form.value);
 		this.router.navigateByUrl("/todos");
-		this.notificationService.show("Todo updated successfully!");
+		this.notificationService.success("Todo updated successfully!");
 	}
 }

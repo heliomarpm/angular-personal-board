@@ -38,17 +38,17 @@ export class TodosService implements OnDestroy {
 
 	addTodo(todo: ITodo) {
 		this.todosSig.update((todos) => [...todos, todo]);
-		this.notificationService.show("✅ Created todo!");
+		this.notificationService.success("✅ Created todo!");
 	}
 
 	updateTodo(id: string, updatedTodoFields: Partial<ITodo>) {
 		this.todosSig.update((todos) => todos.map((t) => (t.id === id ? { ...t, ...updatedTodoFields } : t)));
-		this.notificationService.show("Todo updated successfully!");
+		this.notificationService.success("Todo updated successfully!");
 	}
 
 	deleteTodo(id: string) {
 		this.todosSig.update((todos) => todos.filter((t) => t.id !== id));
-		this.notificationService.show("🗑️ Deleted todo!");
+		this.notificationService.success("🗑️ Deleted todo!");
 	}
 
 	loadState() {
@@ -57,7 +57,7 @@ export class TodosService implements OnDestroy {
 			this.todosSig.set(todosInStorage);
 		} catch (e) {
 			console.error("There was an error retrieving the todos from localStorage", e);
-			this.notificationService.showError("There was an error retrieving the todos from localStorage. See console for details.");
+			this.notificationService.error("There was an error retrieving the todos from localStorage. See console for details.");
 		}
 	}
 }

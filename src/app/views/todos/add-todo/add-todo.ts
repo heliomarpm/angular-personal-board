@@ -28,6 +28,6 @@ export class AddTodo {
 
 		this.todoService.addTodo(todo);
 		this.router.navigateByUrl("/todos");
-		this.notificationService.show("✅ Created todo!");
+		this.notificationService.success("✅ Created todo!");
 	}
 }
