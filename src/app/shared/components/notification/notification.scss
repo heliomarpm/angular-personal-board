@@ -2,7 +2,7 @@
 	position: fixed;
 	bottom: 1rem;
 	right: 1rem;
-	
+
 	color: #fff;
 	padding: 1rem 1.5rem;
 	border-radius: 6px;
@@ -12,6 +12,12 @@
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
 
 	animation: fade-in 0.3s ease, fade-out 0.3s ease 4.7s;
+	animation-fill-mode: forwards;
+	z-index: 1000;
+}
+
+.notification.error {
+	background: rgba(#d32f2f, 0.8);
 }
 
 @keyframes fade-in {
