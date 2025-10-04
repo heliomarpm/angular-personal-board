@@ -25,5 +25,8 @@ export const routes: Routes = [
 			{ path: ":id", loadComponent: () => import("./views/todos/edit-todo/edit-todo").then((c) => c.EditTodo) },
 		],
 	},
+	{
+		path: "notes", loadComponent: () => import("./views/notes/notes").then((c) => c.Notes)
+	},
 	{ path: "**", redirectTo: "/404" },
 ];
