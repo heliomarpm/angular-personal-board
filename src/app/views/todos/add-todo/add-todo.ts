@@ -26,7 +26,7 @@ export class AddTodo {
 
 		const todo = new TodoModel(form.value.text);
 
-		this.todoService.addTodo(todo);
+		this.todoService.add(todo);
 		this.router.navigateByUrl("/todos");
 		this.notificationService.success("✅ Created todo!");
 	}

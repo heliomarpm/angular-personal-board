@@ -26,7 +26,7 @@ export class EditTodo {
 			return;
 		}
 
-		const found = this.todoService.getTodo(todoId);
+		const found = this.todoService.get(todoId);
 		if (!found) {
 			this.notificationService.error("Todo not found");
 			this.router.navigateByUrl("/todos");
@@ -46,7 +46,7 @@ export class EditTodo {
 			return;
 		}
 
-		this.todoService.updateTodo(this.todo.id, form.value);
+		this.todoService.update(this.todo.id, form.value);
 		this.router.navigateByUrl("/todos");
 		this.notificationService.success("Todo updated successfully!");
 	}

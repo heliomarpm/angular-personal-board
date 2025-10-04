@@ -7,7 +7,7 @@
 	@else {
 		<form #form="ngForm" (ngSubmit)="onFormSubmit(form)">
 			<div class="form-field">
-				<input class="textbox" [ngModel]="todo?.text" #textField="ngModel" name="text" type="text" placeholder="Enter todo text..." required minlength="3">
+				<input class="textbox" [ngModel]="todo.text" #textField="ngModel" name="text" type="text" placeholder="Enter todo text..." required minlength="3">
 				@if (textField.invalid) {
 					@if (textField.control.hasError('required')) {
 						<p style="display: flex; align-items: center">

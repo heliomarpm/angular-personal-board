@@ -28,7 +28,7 @@ export class Todos {
 	todos = this.todoService.todos;
 
 	toggleCompleted(todo: ITodo) {
-		this.todoService.updateTodo(todo.id, { completed: !todo.completed });
+		this.todoService.update(todo.id, { completed: !todo.completed });
 	}
 
 	onEditClick(todo: ITodo) {
@@ -36,6 +36,6 @@ export class Todos {
 	}
 
 	onDeleteClick(todo: ITodo) {
-		this.todoService.deleteTodo(todo.id);
+		this.todoService.delete(todo.id);
 	}
 }
