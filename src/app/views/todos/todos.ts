@@ -38,8 +38,4 @@ export class Todos {
 	onDeleteClick(todo: ITodo) {
 		this.todoService.deleteTodo(todo.id);
 	}
-
-	trackById(_index: number, item: ITodo) {
-		return item.id;
-	}
 }
