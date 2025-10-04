@@ -1,5 +1,5 @@
 import { Component, inject, signal } from "@angular/core";
-import { FormsModule, NgForm } from "@angular/forms";
+import { FormsModule, type NgForm } from "@angular/forms";
 import { Router, RouterLink } from "@angular/router";
 
 import { NotificationService } from "@app/shared/components";

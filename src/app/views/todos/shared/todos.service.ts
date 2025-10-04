@@ -1,4 +1,4 @@
-import { Injectable, effect, inject, signal, type OnDestroy } from "@angular/core";
+import { effect, Injectable, inject, type OnDestroy, signal } from "@angular/core";
 import { NotificationService } from "@app/shared/components";
 import { fromEvent, type Subscription } from "rxjs";
 
@@ -13,7 +13,7 @@ export class TodosService implements OnDestroy {
 	private readonly todosSig = signal<ITodo[]>([]);
 
 	todos = this.todosSig.asReadonly();
-	
+
 	constructor() {
 		this.loadState();
 
@@ -22,10 +22,10 @@ export class TodosService implements OnDestroy {
 		});
 
 		// autosave after any changes
-		effect(() =>{
+		effect(() => {
 			localStorage.setItem("todos", JSON.stringify(this.todosSig()));
 			this.notificationService.show("Todos saved!");
-		})
+		});
 	}
 
 	ngOnDestroy() {
@@ -45,9 +45,7 @@ export class TodosService implements OnDestroy {
 	}
 
 	updateTodo(id: string, updatedTodoFields: Partial<ITodo>) {
-		this.todosSig.update((todos) =>
-			todos.map((t) => (t.id === id ? { ...t, ...updatedTodoFields } : t))
-		);
+		this.todosSig.update((todos) => todos.map((t) => (t.id === id ? { ...t, ...updatedTodoFields } : t)));
 	}
 
 	deleteTodo(id: string) {
