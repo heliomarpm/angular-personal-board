@@ -1,5 +1,5 @@
 import { Component, input } from "@angular/core";
-import type { BookmarkModel } from "../bookmark.model";
+import type { BookmarkModel } from "../../bookmark.model";
 
 @Component({
 	selector: "app-bookmark",

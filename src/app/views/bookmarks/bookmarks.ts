@@ -1,7 +1,7 @@
 import { Component, inject } from "@angular/core";
 import { RouterLink } from "@angular/router";
-import { BookmarkService } from "./bookmark.service";
-import { Bookmark } from "./components";
+
+import { Bookmark, BookmarkService } from "./shared";
 
 @Component({
 	selector: "app-bookmarks",

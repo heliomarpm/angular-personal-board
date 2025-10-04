@@ -2,8 +2,8 @@ import { Component, inject, type OnInit } from "@angular/core";
 import { FormsModule, type NgForm } from "@angular/forms";
 import { ActivatedRoute, Router, RouterLink } from "@angular/router";
 import { NotificationService } from "@app/shared/components";
-import { BookmarkService } from "../bookmark.service";
-import type { IBookmark } from "../components";
+import type { IBookmark } from "../shared";
+import { BookmarkService } from "../shared/bookmark.service";
 
 @Component({
 	selector: "app-edit-bookmark",
