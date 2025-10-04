@@ -69,3 +69,15 @@
   margin-right: 8px;
   opacity: 0.9;
 }
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    translate: 30px 0;
+  }
+}
+
+.stagger-in {
+  animation: fadeUp 2000ms ease-out both;
+  animation-delay: calc(var(--i) * 150ms); // 2.
+}

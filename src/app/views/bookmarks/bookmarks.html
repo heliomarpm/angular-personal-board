@@ -2,7 +2,9 @@
   <div class="content">
     <div class="bookmark-tiles">
       @for (item of bookmarks; track $index) {
-        <app-bookmark [item]="item"></app-bookmark>
+        <app-bookmark [item]="item"
+			[style.--i]="$index"
+		 	animate.enter="stagger-in"/>
       }
     </div>
 
