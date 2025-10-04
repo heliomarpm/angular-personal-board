@@ -24,7 +24,7 @@ export class TodosService implements OnDestroy {
 		// autosave after any changes
 		effect(() => {
 			localStorage.setItem("todos", JSON.stringify(this.todosSig()));
-			this.notificationService.show("Todos saved!");
+			// this.notificationService.show("Todos saved!");
 		});
 	}
 
@@ -32,24 +32,23 @@ export class TodosService implements OnDestroy {
 		if (this.storageListenSub) this.storageListenSub.unsubscribe();
 	}
 
-	// getTodos() {
-	// 	return this.todos;
-	// }
-
 	getTodo(id: string) {
 		return this.todosSig().find((t) => t.id === id);
 	}
 
 	addTodo(todo: ITodo) {
 		this.todosSig.update((todos) => [...todos, todo]);
+		this.notificationService.show("✅ Created todo!");
 	}
 
 	updateTodo(id: string, updatedTodoFields: Partial<ITodo>) {
 		this.todosSig.update((todos) => todos.map((t) => (t.id === id ? { ...t, ...updatedTodoFields } : t)));
+		this.notificationService.show("Todo updated successfully!");
 	}
 
 	deleteTodo(id: string) {
 		this.todosSig.update((todos) => todos.filter((t) => t.id !== id));
+		this.notificationService.show("🗑️ Deleted todo!");
 	}
 
 	loadState() {
