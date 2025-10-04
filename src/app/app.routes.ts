@@ -26,7 +26,12 @@ export const routes: Routes = [
 		],
 	},
 	{
-		path: "notes", loadComponent: () => import("./views/notes/notes").then((c) => c.Notes)
+		path: "notes",
+		children: [
+			{ path: "", loadComponent: () => import("./views/notes/notes").then((c) => c.Notes) },
+			{ path: "add", loadComponent: () => import("./views/notes/add-note/add-note").then((c) => c.AddNote) },
+			{ path: ":id", loadComponent: () => import("./views/notes/edit-note/edit-note").then((c) => c.EditNote) },
+		]
 	},
 	{ path: "**", redirectTo: "/404" },
 ];

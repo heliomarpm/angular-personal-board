@@ -1,0 +1,6 @@
+<div class="note-card">
+    <div class="note-card-title" [innerHTML]="note().title"></div>
+	@if (note().content) {
+		<div class="note-card-content" [innerHTML]="note().content"></div>
+	}
+</div>
